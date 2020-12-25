@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OZ0-ZF-w3H">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GameCatalogue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="GameCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q6K-pT-Jek">
+                                <rect key="frame" x="0.0" y="139" width="414" height="733"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yri-tI-LwQ">
+                                <rect key="frame" x="20" y="102" width="113" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="F8l-Kk-tPP">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Mdd-BZ-64c">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pdO-vl-son">
+                                <rect key="frame" x="319" y="1" width="75" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="profile"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buttonProfile" destination="pdO-vl-son" id="7MK-R8-9cG"/>
+                        <outlet property="gameTableView" destination="Q6K-pT-Jek" id="SBg-wQ-Q3C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="120.53571428571428"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="xgM-bG-eMd">
+            <objects>
+                <viewController storyboardIdentifier="ProfileView" id="ulZ-ed-JZW" customClass="ProfileViewController" customModule="GameCatalogue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qed-KB-W84">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXd-9d-rOR">
+                                <rect key="frame" x="20" y="102" width="73" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="nSU-fq-GNk"/>
+                                    <constraint firstAttribute="height" constant="29" id="qxz-GN-1rz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo_profile" translatesAutoresizingMaskIntoConstraints="NO" id="dcF-L8-4x6">
+                                <rect key="frame" x="87" y="212" width="240" height="430"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="aAs-07-4Zq"/>
+                                    <constraint firstAttribute="height" constant="430" id="rKh-KO-UMs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nanda Wawan Kurniawan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJP-fd-wvQ">
+                                <rect key="frame" x="87" y="630" width="240" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dcF-L8-4x6" firstAttribute="leading" secondItem="ewL-ut-lqe" secondAttribute="leading" constant="87" id="7an-BJ-2VU"/>
+                            <constraint firstItem="dcF-L8-4x6" firstAttribute="top" secondItem="xXd-9d-rOR" secondAttribute="bottom" constant="81" id="8Bd-95-Ol2"/>
+                            <constraint firstItem="ewL-ut-lqe" firstAttribute="bottom" secondItem="dcF-L8-4x6" secondAttribute="bottom" constant="220" id="Gtz-Yw-DZE"/>
+                            <constraint firstItem="xXd-9d-rOR" firstAttribute="top" secondItem="ewL-ut-lqe" secondAttribute="top" constant="58" id="SXU-i4-m5a"/>
+                            <constraint firstItem="xXd-9d-rOR" firstAttribute="leading" secondItem="ewL-ut-lqe" secondAttribute="leading" constant="20" id="Uit-ai-yoR"/>
+                            <constraint firstItem="dcF-L8-4x6" firstAttribute="top" secondItem="xXd-9d-rOR" secondAttribute="bottom" constant="81" id="YaI-cA-a06"/>
+                            <constraint firstItem="ewL-ut-lqe" firstAttribute="trailing" secondItem="xXd-9d-rOR" secondAttribute="trailing" constant="321" id="qRv-pt-1Ss"/>
+                            <constraint firstItem="ewL-ut-lqe" firstAttribute="trailing" secondItem="dcF-L8-4x6" secondAttribute="trailing" constant="87" id="rJL-8p-v0f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ewL-ut-lqe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCI-cL-qZj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1941" y="121"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dFa-Ko-Int">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OZ0-ZF-w3H" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DuB-ST-A8Z">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="tp8-QR-0xp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="an1-bH-NPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="photo_profile" width="366" height="430"/>
+        <image name="profile" width="21" height="21"/>
+    </resources>
+</document>
