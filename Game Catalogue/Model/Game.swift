@@ -79,16 +79,32 @@ func getData(page_size: String = "10") {
 private func decodeJSON(data: Data) {
     
     let decoder = JSONDecoder()
-    let games = try! decoder.decode(Games.self, from: data)
-
-    DispatchQueue.main.async {
-        games.games.forEach { game in
-            listGame?.append(
-                Game(
-                    id: game.id, slugName: game.slugName, gameName: game.gameName, gamePhoto: game.gamePhoto,
-                    ratingGame: game.ratingGame, releasedDate: game.releasedDate, ratingsGame: game.ratingsGame
-                )
-            )
+    
+    do {
+        let games = try decoder.decode(Games.self, from: data)
+        
+        DispatchQueue.main.async {
+            games.games.forEach { game in
+                listGame? = [
+                    Game(
+                        id: game.id, slugName: game.slugName, gameName: game.gameName, gamePhoto: game.gamePhoto,
+                        ratingGame: game.ratingGame, releasedDate: game.releasedDate, ratingsGame: game.ratingsGame
+                    )
+                ]
+            }
         }
+    } catch let DecodingError.dataCorrupted(context) {
+        print(context)
+    } catch let DecodingError.keyNotFound(key, context) {
+        print("Key '\(key)' not found:", context.debugDescription)
+        print("codingPath:", context.codingPath)
+    } catch let DecodingError.valueNotFound(value, context) {
+        print("Value '\(value)' not found:", context.debugDescription)
+        print("codingPath:", context.codingPath)
+    } catch let DecodingError.typeMismatch(type, context)  {
+        print("Type '\(type)' mismatch:", context.debugDescription)
+        print("codingPath:", context.codingPath)
+    } catch {
+        print("error: ", error)
     }
 }
