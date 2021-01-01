@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="center" restorationIdentifier="RatingCell" selectionStyle="default" indentationWidth="10" rowHeight="96" id="KGk-i7-Jjw" customClass="RatingTableViewCell" customModule="GameCatalogue" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="338" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="338" height="96"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkO-Yp-Y2M">
+                        <rect key="frame" x="70" y="9" width="200" height="22"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precentage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuY-9r-0Au">
+                        <rect key="frame" x="230" y="19" width="88" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="88" id="zSQ-bg-jDr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoc-Ox-QfP">
+                        <rect key="frame" x="20" y="19" width="47" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="47" id="FmI-K8-bTu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="IkO-Yp-Y2M" secondAttribute="trailing" constant="68" id="849-bJ-GTB"/>
+                    <constraint firstItem="IkO-Yp-Y2M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="8ES-EU-Zpx"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="zoc-Ox-QfP" secondAttribute="bottom" constant="1" id="Doq-wC-X3c"/>
+                    <constraint firstItem="BuY-9r-0Au" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="HbI-VC-Pn3"/>
+                    <constraint firstAttribute="bottom" secondItem="IkO-Yp-Y2M" secondAttribute="bottom" constant="65" id="NlZ-AF-QHh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BuY-9r-0Au" secondAttribute="bottom" constant="1" id="Wdv-aY-PNg"/>
+                    <constraint firstItem="BuY-9r-0Au" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="a4A-Ev-0MB"/>
+                    <constraint firstItem="zoc-Ox-QfP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="alc-ps-YuR"/>
+                    <constraint firstItem="zoc-Ox-QfP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="r5t-hy-YTG"/>
+                    <constraint firstItem="IkO-Yp-Y2M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="70" id="zb6-CG-B7X"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="count" destination="zoc-Ox-QfP" id="fqV-xN-kdG"/>
+                <outlet property="precent" destination="BuY-9r-0Au" id="JG8-id-gdn"/>
+                <outlet property="title" destination="IkO-Yp-Y2M" id="HFK-ad-hMG"/>
+            </connections>
+            <point key="canvasLocation" x="123.18840579710145" y="125.89285714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

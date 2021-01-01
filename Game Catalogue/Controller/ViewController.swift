@@ -1,23 +1,21 @@
-//
-//  ViewController.swift
-//  Game Catalogue
-//
-//  Created by Nanda Wawan Kurniawan on 23/12/20.
-//  Copyright © 2020 Dicoding Indoneisa. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
+    var listGame: [Game] = []
+    var filteredGame: [Game] = []
+    let searchController = UISearchController(searchResultsController: nil)
+    
     @IBOutlet weak var gameTableView: UITableView!
     @IBOutlet weak var buttonProfile: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getData()
+        searchController.searchResultsUpdater = (self as UISearchResultsUpdating)
+        definesPresentationContext = true
         
+        gameTableView.tableHeaderView = searchController.searchBar
         gameTableView.dataSource = self
         gameTableView.delegate = self
         gameTableView.register(
@@ -26,8 +24,23 @@ class ViewController: UIViewController {
         )
     
         addTapped(parameter: &buttonProfile)
+        
+        let service = ApiService()
+        service.getListGame { result in
+            self.listGame = result
+            
+            DispatchQueue.main.async {
+                self.gameTableView.reloadData()
+            }
+        }
     }
 
+    private func filterGame(for searchText: String){
+        filteredGame = listGame.filter { game in
+            return game.gameName.lowercased().contains(searchText.lowercased())
+        }
+        gameTableView.reloadData()
+    }
 
     func addTapped(parameter: inout UIButton) {
         
@@ -42,19 +55,42 @@ class ViewController: UIViewController {
         
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    func filterContentForSearchText(_ searchText: String, category: Game? = nil) {
+      filteredGame = listGame.filter { (game: Game) -> Bool in
+        return game.gameName.lowercased().contains(searchText.lowercased())
+      }
+      
+      self.gameTableView.reloadData()
+    }
+
+}
+
+extension ViewController: UISearchResultsUpdating {
+    func updateSearchResults (for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text ?? "")
+    }
 }
 
 extension ViewController: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listGame!.count
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredGame.count
+        } else {
+            return listGame.count
+        }
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let games: Game
         if let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? GameTableViewCell {
             
-            let games = listGame![indexPath.row]
+            if searchController.isActive && searchController.searchBar.text != "" {
+                games = filteredGame[indexPath.row]
+            } else {
+                games = listGame[indexPath.row]
+            }
             
             let data = try! Data(contentsOf: ((URL(string: games.gamePhoto)))!)
                 
@@ -71,6 +107,13 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let detail = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "DetailGame") as? DetailViewController {
+            
+            detail.games = listGame[indexPath.row]
+            navigationController?.pushViewController(detail, animated: true)
+        }
+    }
 }
 

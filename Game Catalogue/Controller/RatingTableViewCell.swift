@@ -1,12 +1,11 @@
 import UIKit
 
-class GameTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var gameName: UILabel!
-    @IBOutlet weak var gameReleased: UILabel!
-    @IBOutlet weak var gameRating: UILabel!
-    @IBOutlet weak var gamePhoto: UIImageView!
+class RatingTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var count: UILabel!
+    @IBOutlet weak var precent: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
